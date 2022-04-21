@@ -1,0 +1,22 @@
+<%- include("partials/header"); -%>
+
+<h1 class="homeTitle" >Home</h1>
+<p class="letter"><%=titulo%></p>
+
+<%posts.forEach(function(element){%>
+  <div class = "postTitle" >
+    <h2 class = "tituloDelete"><%=element.title%></h2>
+    <form class="formDelete" action="/delete" method="post">
+      <button class = "btnDelete" type="submit" name="buttonDel" value="<%=element._id%>"><i class="fa-solid fa-circle-minus"></i></button>
+    </form>
+
+  </div>
+
+  <p>
+      <%=element.body.substring(0,100)+"..."%>
+      <a href="/posts/<%=element._id%>">Read more</a>
+  </p>
+<%})%>
+
+
+<%- include("partials/footer"); -%>
