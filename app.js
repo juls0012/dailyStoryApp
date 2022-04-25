@@ -1,5 +1,5 @@
-//jshint esversion:6
 
+require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
@@ -14,7 +14,7 @@ const contactContent = "Here is my social media and the ways to contact me.";
 
 posts = [];
 //Database condimentum
-mongoose.connect("mongodb://localhost:27017/blogDB");
+mongoose.connect(process.env.MONGO_URL);
 //--Schema
 const postSchema = new mongoose.Schema({
   title: String,
